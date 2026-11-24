@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+:root {
+  --background: #09090b;
+  --foreground: #f4f4f5;
+  --surface: #121215;
+  --surface-hover: #1a1a1f;
+  --surface-card: #18181b;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(62, 166, 255, 0.4);
+  --accent: #3ea6ff;
+  --accent-hover: #65b8ff;
+  --accent-dim: rgba(62, 166, 255, 0.12);
+  --success: #30d158;
+  --success-dim: rgba(48, 209, 88, 0.12);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #3ea6ff;
+  color: #000000;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(62, 166, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(62, 166, 255, 0.75);
+  }
+}
+
+.glow-accent {
+  box-shadow: 0 0 20px rgba(62, 166, 255, 0.25);
+}
+
+.glow-pulse {
+  animation: pulseGlow 3s infinite;
+}
+
+.bg-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
