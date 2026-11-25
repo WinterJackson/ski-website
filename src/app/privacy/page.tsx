@@ -76,7 +76,7 @@ export default function PrivacyPage() {
             </p>
             <p className="text-zinc-400">
               <strong>Winter Jackson</strong><br />
-              Founder, Xinteck Digital Solutions<br />
+              Software Developer, Xinteck Digital Solutions<br />
               Email: <a href="mailto:winterjacksonwj@gmail.com" className="text-[#3ea6ff] hover:underline">winterjacksonwj@gmail.com</a><br />
               Website: <a href="https://xinteck.co.ke/" target="_blank" rel="noopener noreferrer" className="text-[#3ea6ff] hover:underline">https://xinteck.co.ke/</a>
             </p>
