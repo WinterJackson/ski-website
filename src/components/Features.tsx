@@ -14,7 +14,7 @@ export default function Features() {
         <Reveal>
           <div className="text-center space-y-4 mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-card border border-zinc-800 text-zinc-300 text-xs font-mono uppercase tracking-wider">
-              ⚡ Bento Architecture
+              ⚡ Core Architecture
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
               Engineered to Never Break
