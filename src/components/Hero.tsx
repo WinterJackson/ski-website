@@ -41,29 +41,26 @@ export default function Hero() {
               The ultra-lightweight browser extension that clicks YouTube&apos;s native Skip Ad button the millisecond it appears. No network blocking, no broken players, zero tracking.
             </p>
 
-            {/* Concise CTAs (Strictly <= 3 words each) */}
+            {/* Concise CTAs (Strictly <= 2 words each) */}
             <div id="download" className="flex flex-wrap items-center gap-3.5 pt-1">
               <a
                 href="https://addons.mozilla.org/en-GB/firefox/addon/ski-extension/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-swap px-6 py-3.5 rounded-xl bg-accent text-black font-bold text-sm hover:bg-accent-hover transition-colors glow-accent active:scale-95"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-accent text-black font-bold text-sm hover:bg-accent-hover hover:-translate-y-0.5 transition-all glow-accent active:scale-95"
               >
-                <span className="btn-swap-inner" data-hover="Add Firefox ↗">
-                  🦊 Get Firefox ↗
-                </span>
+                <span>🦊</span>
+                <span>Get Firefox</span>
               </a>
 
               <a
                 href="https://github.com/WinterJackson/ski/releases"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-swap px-6 py-3.5 rounded-xl bg-surface-card border border-zinc-800 hover:border-accent text-white font-semibold text-sm transition-colors hover:bg-surface-hover active:scale-95 shadow-md"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-surface-card border border-zinc-800 hover:border-accent text-white font-semibold text-sm transition-all hover:bg-surface-hover hover:-translate-y-0.5 active:scale-95 shadow-md"
               >
-                <span className="btn-swap-inner" data-hover="Get Release ↗">
-                  <Image src="/icon/32.png" alt="Ski Icon" width={18} height={18} className="rounded" />
-                  <span>All Browsers ↗</span>
-                </span>
+                <Image src="/icon/32.png" alt="Ski Icon" width={18} height={18} className="rounded" />
+                <span>Get Release</span>
               </a>
             </div>
 

@@ -70,11 +70,9 @@ export default function Navbar() {
           </a>
           <Link
             href="/#download"
-            className="btn-swap text-xs font-bold px-4 py-2 rounded-lg bg-accent text-black hover:bg-accent-hover transition-colors glow-accent whitespace-nowrap"
+            className="text-xs font-bold px-4 py-2 rounded-lg bg-accent text-black hover:bg-accent-hover transition-all glow-accent hover:-translate-y-0.5 active:scale-95 whitespace-nowrap"
           >
-            <span className="btn-swap-inner" data-hover="Get Ski ↗">
-              Install Free ↗
-            </span>
+            Get Ski
           </Link>
         </div>
 
@@ -115,7 +113,7 @@ export default function Navbar() {
           </Link>
           <div className="pt-2 grid grid-cols-2 gap-2">
             <Link href="/#download" onClick={() => setMobileMenuOpen(false)} className="text-center text-xs font-bold py-2.5 rounded-lg bg-accent text-black">
-              Install Free
+              Get Ski
             </Link>
             <a
               href="https://paystack.shop/pay/ski-extension"
