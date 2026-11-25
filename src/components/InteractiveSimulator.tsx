@@ -116,7 +116,7 @@ export default function InteractiveSimulator() {
           {/* Skip Button Simulation (Bottom Right) */}
           <div className="flex items-center justify-between z-10">
             <div className="text-[11px] text-zinc-500 font-mono">
-              Total Skipped in Session: <span className="text-zinc-300 font-bold">{skipsCount}</span>
+              Total Skipped in Session: <span className="text-zinc-300 font-bold tabular-nums">{skipsCount}</span>
             </div>
 
             {adActive && (

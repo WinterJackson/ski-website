@@ -1,5 +1,27 @@
 import type { Metadata } from "next";
+import { Space_Grotesk, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-jakarta",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-jetbrains",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -76,11 +98,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html
+      lang="en"
+      className={`dark scroll-smooth ${spaceGrotesk.variable} ${plusJakarta.variable} ${jetbrainsMono.variable}`}
+    >
       <head>
         <link rel="icon" href="/icon/32.png" />
       </head>
-      <body className="min-h-screen bg-[#09090b] text-zinc-100 antialiased selection:bg-[#3ea6ff] selection:text-black">
+      <body className="min-h-screen bg-[#09090b] font-sans text-zinc-100 antialiased selection:bg-[#3ea6ff] selection:text-black">
         {children}
       </body>
     </html>
