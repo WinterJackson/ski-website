@@ -20,3 +20,4 @@ export const FAQS = [
     a: "YouTube uses K, Space, J, L, M, F, and C for player controls. Tab has no YouTube playback conflict and sits right under your left hand, though you can customize it to any key combo in Settings.",
   },
 ];
+

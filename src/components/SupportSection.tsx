@@ -22,17 +22,17 @@ export default function SupportSection() {
             className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-support text-white font-bold text-sm hover:opacity-90 transition-all shadow-[0_0_25px_rgba(255,129,63,0.3)] active:scale-95"
           >
             <span className="text-lg">☕</span>
-            <span>Buy Me a Coffee</span>
+            <span>Support Ski</span>
           </a>
 
           <a
             href="https://github.com/sponsors/WinterJackson"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-zinc-900 border border-zinc-700 hover:border-pink-500/60 text-white font-semibold text-sm transition-all hover:bg-zinc-800 active:scale-95 shadow-md"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-surface-card border border-zinc-700 hover:border-pink-500/60 text-white font-semibold text-sm transition-all hover:bg-surface-hover active:scale-95 shadow-md"
           >
             <span className="text-pink-400">♥</span>
-            <span>Sponsor on GitHub</span>
+            <span>GitHub Sponsors</span>
           </a>
         </div>
 
