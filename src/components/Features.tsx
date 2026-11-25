@@ -33,7 +33,7 @@ export default function Features() {
   ];
 
   return (
-    <section id="features" className="py-24 border-t border-zinc-800/80 bg-[#09090b]">
+    <section id="features" className="py-24 border-t border-zinc-800/80 bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-800/80 border border-zinc-700 text-zinc-300 text-xs font-semibold">
@@ -51,12 +51,12 @@ export default function Features() {
           {features.map((feature, i) => (
             <div
               key={i}
-              className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/90 hover:border-[#3ea6ff]/40 transition-all hover:bg-zinc-900/80 group space-y-3"
+              className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/90 hover:border-accent/40 transition-all hover:bg-zinc-900/80 group space-y-3"
             >
               <div className="text-3xl w-12 h-12 rounded-xl bg-zinc-800/60 flex items-center justify-center border border-zinc-700/50 group-hover:scale-110 transition-transform">
                 {feature.icon}
               </div>
-              <h3 className="text-lg font-bold text-white group-hover:text-[#3ea6ff] transition-colors">
+              <h3 className="text-lg font-bold text-white group-hover:text-accent transition-colors">
                 {feature.title}
               </h3>
               <p className="text-sm text-zinc-400 leading-relaxed">

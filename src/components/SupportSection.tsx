@@ -1,6 +1,6 @@
 export default function SupportSection() {
   return (
-    <section id="support" className="py-24 border-t border-zinc-800/80 bg-[#09090b] relative">
+    <section id="support" className="py-24 border-t border-zinc-800/80 bg-background relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold">
           ☕ Independent & Community Supported
@@ -19,7 +19,7 @@ export default function SupportSection() {
             href="https://paystack.shop/pay/ski-extension"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-[#ff813f] text-white font-bold text-sm hover:opacity-90 transition-all shadow-[0_0_25px_rgba(255,129,63,0.3)] active:scale-95"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-support text-white font-bold text-sm hover:opacity-90 transition-all shadow-[0_0_25px_rgba(255,129,63,0.3)] active:scale-95"
           >
             <span className="text-lg">☕</span>
             <span>Buy Me a Coffee</span>
@@ -37,7 +37,7 @@ export default function SupportSection() {
         </div>
 
         <div className="pt-8 border-t border-zinc-800/80 text-xs text-zinc-500">
-          Backed by <a href="https://xinteck.co.ke/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-[#3ea6ff] underline underline-offset-4">Xinteck Digital Solutions</a> · Crafted with precision in Nairobi, Kenya.
+          Backed by <a href="https://xinteck.co.ke/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-accent underline underline-offset-4">Xinteck Digital Solutions</a> · Crafted with precision in Nairobi, Kenya.
         </div>
       </div>
     </section>

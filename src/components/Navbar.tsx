@@ -8,11 +8,11 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#09090b]/80 backdrop-blur-md border-b border-zinc-800/60">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-zinc-800/60">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-8 h-8 rounded-lg overflow-hidden ring-1 ring-zinc-700/50 group-hover:ring-[#3ea6ff]/60 transition-all">
+          <div className="relative w-8 h-8 rounded-lg overflow-hidden ring-1 ring-zinc-700/50 group-hover:ring-accent/60 transition-all">
             <Image
               src="/icon/128.png"
               alt="Ski Extension Logo"
@@ -22,7 +22,7 @@ export default function Navbar() {
             />
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-lg font-bold tracking-tight text-white group-hover:text-[#3ea6ff] transition-colors">
+            <span className="text-lg font-bold tracking-tight text-white group-hover:text-accent transition-colors">
               Ski
             </span>
             <span className="text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded-full bg-zinc-800/80 text-zinc-400 border border-zinc-700/50">
@@ -33,19 +33,19 @@ export default function Navbar() {
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-300">
-          <Link href="#features" className="hover:text-[#3ea6ff] transition-colors">
+          <Link href="#features" className="hover:text-accent transition-colors">
             Features
           </Link>
-          <Link href="#simulator" className="hover:text-[#3ea6ff] transition-colors">
+          <Link href="#simulator" className="hover:text-accent transition-colors">
             Interactive Demo
           </Link>
-          <Link href="#how-it-works" className="hover:text-[#3ea6ff] transition-colors">
+          <Link href="#how-it-works" className="hover:text-accent transition-colors">
             How It Works
           </Link>
-          <Link href="/blog" className="hover:text-[#3ea6ff] transition-colors">
+          <Link href="/blog" className="hover:text-accent transition-colors">
             Blog
           </Link>
-          <Link href="#support" className="hover:text-[#3ea6ff] transition-colors">
+          <Link href="#support" className="hover:text-accent transition-colors">
             Support
           </Link>
         </div>
@@ -64,13 +64,13 @@ export default function Navbar() {
             href="https://paystack.shop/pay/ski-extension"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-semibold px-3 py-2 rounded-lg bg-[#ff813f] text-white hover:opacity-90 transition-all flex items-center gap-1.5"
+            className="text-xs font-semibold px-3 py-2 rounded-lg bg-support text-white hover:opacity-90 transition-all flex items-center gap-1.5"
           >
             ☕ Buy Coffee
           </a>
           <Link
             href="#download"
-            className="text-xs font-bold px-4 py-2 rounded-lg bg-[#3ea6ff] text-black hover:bg-[#65b8ff] transition-all shadow-[0_0_15px_rgba(62,166,255,0.3)]"
+            className="text-xs font-bold px-4 py-2 rounded-lg bg-accent text-black hover:bg-accent-hover transition-all shadow-[0_0_15px_rgba(62,166,255,0.3)]"
           >
             Install Free
           </Link>
@@ -94,39 +94,39 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden px-4 pt-2 pb-6 bg-[#09090b] border-b border-zinc-800 space-y-3">
+        <div className="md:hidden px-4 pt-2 pb-6 bg-background border-b border-zinc-800 space-y-3">
           <Link
             href="#features"
             onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-sm text-zinc-300 hover:text-[#3ea6ff]"
+            className="block py-2 text-sm text-zinc-300 hover:text-accent"
           >
             Features
           </Link>
           <Link
             href="#simulator"
             onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-sm text-zinc-300 hover:text-[#3ea6ff]"
+            className="block py-2 text-sm text-zinc-300 hover:text-accent"
           >
             Interactive Demo
           </Link>
           <Link
             href="#how-it-works"
             onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-sm text-zinc-300 hover:text-[#3ea6ff]"
+            className="block py-2 text-sm text-zinc-300 hover:text-accent"
           >
             How It Works
           </Link>
           <Link
             href="/blog"
             onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-sm text-zinc-300 hover:text-[#3ea6ff]"
+            className="block py-2 text-sm text-zinc-300 hover:text-accent"
           >
             Blog
           </Link>
           <Link
             href="#support"
             onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-sm text-zinc-300 hover:text-[#3ea6ff]"
+            className="block py-2 text-sm text-zinc-300 hover:text-accent"
           >
             Support
           </Link>
@@ -134,7 +134,7 @@ export default function Navbar() {
             <Link
               href="#download"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-center text-xs font-bold py-2.5 rounded-lg bg-[#3ea6ff] text-black"
+              className="text-center text-xs font-bold py-2.5 rounded-lg bg-accent text-black"
             >
               Install Free
             </Link>
@@ -142,7 +142,7 @@ export default function Navbar() {
               href="https://paystack.shop/pay/ski-extension"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-center text-xs font-semibold py-2.5 rounded-lg bg-[#ff813f] text-white"
+              className="text-center text-xs font-semibold py-2.5 rounded-lg bg-support text-white"
             >
               ☕ Buy Me a Coffee
             </a>

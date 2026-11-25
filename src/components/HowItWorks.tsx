@@ -1,6 +1,6 @@
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 border-t border-zinc-800/80 bg-[#0c0c0e]">
+    <section id="how-it-works" className="py-24 border-t border-zinc-800/80 bg-surface">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-800/80 border border-zinc-700 text-zinc-300 text-xs font-semibold">
@@ -42,26 +42,26 @@ export default function HowItWorks() {
           </div>
 
           {/* Ski Extension Way */}
-          <div className="p-8 rounded-2xl bg-[#3ea6ff]/5 border border-[#3ea6ff]/30 space-y-5 shadow-[0_0_30px_rgba(62,166,255,0.08)]">
+          <div className="p-8 rounded-2xl bg-accent/5 border border-accent/30 space-y-5 shadow-[0_0_30px_rgba(62,166,255,0.08)]">
             <div className="flex items-center gap-3">
-              <span className="text-2xl text-[#3ea6ff]">✓</span>
+              <span className="text-2xl text-accent">✓</span>
               <h3 className="text-xl font-bold text-white">Ski Extension Approach</h3>
             </div>
             <ul className="space-y-3.5 text-sm text-zinc-300">
               <li className="flex items-start gap-2.5">
-                <span className="text-[#3ea6ff] font-bold mt-0.5">•</span>
+                <span className="text-accent font-bold mt-0.5">•</span>
                 <span><strong>Zero network interception.</strong> Leaves all video stream buffers completely untouched.</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="text-[#3ea6ff] font-bold mt-0.5">•</span>
+                <span className="text-accent font-bold mt-0.5">•</span>
                 <span><strong>Never triggers anti-adblock popups.</strong> It simply executes YouTube&apos;s legitimate, intended Skip button.</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="text-[#3ea6ff] font-bold mt-0.5">•</span>
+                <span className="text-accent font-bold mt-0.5">•</span>
                 <span><strong>Lightweight footprint.</strong> The content script weighs under 18 KB with zero background overhead.</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="text-[#3ea6ff] font-bold mt-0.5">•</span>
+                <span className="text-accent font-bold mt-0.5">•</span>
                 <span><strong>Self-healing algorithm.</strong> Automatically adapts if YouTube renames button classes.</span>
               </li>
             </ul>

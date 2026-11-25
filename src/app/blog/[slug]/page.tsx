@@ -80,7 +80,7 @@ export default async function BlogPostPage({
   };
 
   return (
-    <main className="min-h-screen bg-[#09090b] text-zinc-100 flex flex-col">
+    <main className="min-h-screen bg-background text-zinc-100 flex flex-col">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
@@ -89,11 +89,11 @@ export default async function BlogPostPage({
 
       <article className="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 flex-1">
         <div className="space-y-4 mb-10 border-b border-zinc-800 pb-8">
-          <Link href="/blog" className="text-xs text-[#3ea6ff] hover:underline">
+          <Link href="/blog" className="text-xs text-accent hover:underline">
             ← Back to all articles
           </Link>
           <div className="flex items-center gap-2 text-xs text-zinc-400">
-            <span className="px-2.5 py-0.5 rounded bg-[#3ea6ff]/10 text-[#3ea6ff] font-semibold">
+            <span className="px-2.5 py-0.5 rounded bg-accent/10 text-accent font-semibold">
               {post.category}
             </span>
             <span>·</span>
@@ -128,7 +128,7 @@ export default async function BlogPostPage({
         </div>
 
         {/* High-converting bottom CTA */}
-        <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-[#3ea6ff]/5 border border-[#3ea6ff]/30 space-y-4">
+        <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-accent/5 border border-accent/30 space-y-4">
           <h3 className="text-xl font-bold text-white">
             Try Ski Extension Free on Your Browser
           </h3>
@@ -138,13 +138,13 @@ export default async function BlogPostPage({
           <div className="flex flex-wrap items-center gap-3 pt-1">
             <Link
               href="/#download"
-              className="px-5 py-2.5 rounded-xl bg-[#3ea6ff] text-black font-bold text-xs hover:bg-[#65b8ff] transition-all"
+              className="px-5 py-2.5 rounded-xl bg-accent text-black font-bold text-xs hover:bg-accent-hover transition-all"
             >
               Install Ski Extension Free
             </Link>
             <Link
               href="/#simulator"
-              className="px-5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-700 text-white font-semibold text-xs hover:border-[#3ea6ff] transition-all"
+              className="px-5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-700 text-white font-semibold text-xs hover:border-accent transition-all"
             >
               Try Interactive Demo
             </Link>
@@ -152,7 +152,7 @@ export default async function BlogPostPage({
         </div>
 
         <div className="mt-10 pt-6 border-t border-zinc-800 flex items-center justify-between">
-          <Link href="/blog" className="text-xs text-[#3ea6ff] hover:underline">
+          <Link href="/blog" className="text-xs text-accent hover:underline">
             ← More articles
           </Link>
           <Link href="/privacy" className="text-xs text-zinc-400 hover:text-white">

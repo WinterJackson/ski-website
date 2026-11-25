@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-zinc-800/80 bg-[#09090b] py-16 text-zinc-400 text-sm">
+    <footer className="border-t border-zinc-800/80 bg-background py-16 text-zinc-400 text-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Col */}
@@ -27,7 +27,7 @@ export default function Footer() {
                 href="https://github.com/WinterJackson"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-[#3ea6ff] font-medium underline underline-offset-2"
+                className="text-white hover:text-accent font-medium underline underline-offset-2"
               >
                 Winter Jackson
               </a>
@@ -36,7 +36,7 @@ export default function Footer() {
                 href="https://xinteck.co.ke/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-[#3ea6ff] font-medium underline underline-offset-2"
+                className="text-white hover:text-accent font-medium underline underline-offset-2"
               >
                 Xinteck Digital Solutions
               </a>
@@ -132,7 +132,7 @@ export default function Footer() {
                   href="https://paystack.shop/pay/ski-extension"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#ff813f] hover:underline transition-colors font-medium flex items-center gap-1.5"
+                  className="text-support hover:underline transition-colors font-medium flex items-center gap-1.5"
                 >
                   <span>☕</span>
                   <span>Buy Me a Coffee</span>

@@ -50,7 +50,7 @@ export default function InteractiveSimulator() {
     <section id="simulator" className="py-20 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center space-y-3 mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#3ea6ff]/10 border border-[#3ea6ff]/20 text-[#3ea6ff] text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-semibold">
             ✨ Interactive Testbed
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
@@ -62,7 +62,7 @@ export default function InteractiveSimulator() {
         </div>
 
         {/* Video Player Mockup */}
-        <div className="relative rounded-2xl overflow-hidden border border-zinc-800 bg-[#000000] shadow-[0_20px_50px_rgba(0,0,0,0.8)] aspect-video max-h-[460px] flex flex-col justify-between p-4 sm:p-6 group">
+        <div className="relative rounded-2xl overflow-hidden border border-zinc-800 bg-black shadow-[0_20px_50px_rgba(0,0,0,0.8)] aspect-video max-h-[460px] flex flex-col justify-between p-4 sm:p-6 group">
           {/* Top Bar Mockup */}
           <div className="flex items-center justify-between text-xs text-zinc-400 z-10">
             <div className="flex items-center gap-2">
@@ -78,7 +78,7 @@ export default function InteractiveSimulator() {
                   type="checkbox"
                   checked={autoSkipOn}
                   onChange={(e) => setAutoSkipOn(e.target.checked)}
-                  className="rounded text-[#3ea6ff] focus:ring-0 cursor-pointer"
+                  className="rounded text-accent focus:ring-0 cursor-pointer"
                 />
               </label>
             </div>
@@ -92,11 +92,11 @@ export default function InteractiveSimulator() {
                   Unwanted Ad Interrupting
                 </div>
                 <div className="text-xl sm:text-2xl font-bold text-white">
-                  Hit <kbd className="px-3 py-1 rounded-lg bg-zinc-800 border border-zinc-600 text-[#3ea6ff] font-mono shadow-md">Tab</kbd> to skip
+                  Hit <kbd className="px-3 py-1 rounded-lg bg-zinc-800 border border-zinc-600 text-accent font-mono shadow-md">Tab</kbd> to skip
                 </div>
                 <button
                   onClick={() => handleSkip("manual")}
-                  className="sm:hidden px-4 py-2 rounded-lg bg-[#3ea6ff] text-black font-bold text-xs shadow-lg active:scale-95"
+                  className="sm:hidden px-4 py-2 rounded-lg bg-accent text-black font-bold text-xs shadow-lg active:scale-95"
                 >
                   Tap to Skip
                 </button>
@@ -122,20 +122,20 @@ export default function InteractiveSimulator() {
             {adActive && (
               <button
                 onClick={() => handleSkip("manual")}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-black/80 hover:bg-black text-white text-xs font-semibold border border-white/20 hover:border-[#3ea6ff] transition-all cursor-pointer shadow-lg active:scale-95 group/btn"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-black/80 hover:bg-black text-white text-xs font-semibold border border-white/20 hover:border-accent transition-all cursor-pointer shadow-lg active:scale-95 group/btn"
               >
                 <span>Skip Ad</span>
-                <span className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-800 text-[#3ea6ff] font-mono border border-zinc-700">
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-800 text-accent font-mono border border-zinc-700">
                   Tab
                 </span>
-                <span className="text-base leading-none text-[#3ea6ff]">⏭</span>
+                <span className="text-base leading-none text-accent">⏭</span>
               </button>
             )}
           </div>
 
           {/* Toast Notification Simulation */}
           {toastMessage && (
-            <div className="absolute bottom-6 right-6 z-30 flex items-center gap-3 px-4 py-3 rounded-xl bg-zinc-900/95 border-l-4 border-l-[#3ea6ff] border border-zinc-700/80 text-white shadow-2xl backdrop-blur-md animate-in fade-in slide-in-from-bottom-2 duration-200">
+            <div className="absolute bottom-6 right-6 z-30 flex items-center gap-3 px-4 py-3 rounded-xl bg-zinc-900/95 border-l-4 border-l-accent border border-zinc-700/80 text-white shadow-2xl backdrop-blur-md animate-in fade-in slide-in-from-bottom-2 duration-200">
               <span className="text-sm font-semibold">{toastMessage}</span>
             </div>
           )}

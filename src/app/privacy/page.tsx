@@ -14,12 +14,12 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-[#09090b] text-zinc-100 flex flex-col">
+    <main className="min-h-screen bg-background text-zinc-100 flex flex-col">
       <Navbar />
 
       <section className="pt-32 pb-24 max-w-4xl mx-auto px-4 sm:px-6">
         <div className="space-y-4 mb-10 border-b border-zinc-800 pb-8">
-          <Link href="/" className="text-xs text-[#3ea6ff] hover:underline">
+          <Link href="/" className="text-xs text-accent hover:underline">
             ← Back to Home
           </Link>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
@@ -31,7 +31,7 @@ export default function PrivacyPage() {
         </div>
 
         <div className="prose prose-invert prose-zinc max-w-none space-y-8 text-zinc-300 text-sm sm:text-base leading-relaxed">
-          <div className="p-4 rounded-xl bg-[#3ea6ff]/10 border border-[#3ea6ff]/30 text-white">
+          <div className="p-4 rounded-xl bg-accent/10 border border-accent/30 text-white">
             <strong>Summary:</strong> Ski Extension collects <strong>zero data</strong>. No personal info, no browsing history, no telemetry, no tracking cookies. Everything stays 100% on your device.
           </div>
 
@@ -45,7 +45,7 @@ export default function PrivacyPage() {
           <section className="space-y-3">
             <h2 className="text-xl font-bold text-white">2. Local Storage Usage</h2>
             <p>
-              The extension uses standard browser storage APIs (<code className="text-[#3ea6ff]">browser.storage.sync</code> and <code className="text-[#3ea6ff]">browser.storage.local</code>) exclusively to store your personal user preferences:
+              The extension uses standard browser storage APIs (<code className="text-accent">browser.storage.sync</code> and <code className="text-accent">browser.storage.local</code>) exclusively to store your personal user preferences:
             </p>
             <ul className="list-disc pl-5 space-y-1.5 text-zinc-400">
               <li>Your chosen hotkey (default: <kbd className="text-zinc-200">Tab</kbd>)</li>
@@ -72,7 +72,7 @@ export default function PrivacyPage() {
                 href="https://github.com/WinterJackson/ski"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#3ea6ff] hover:underline"
+                className="text-accent hover:underline"
               >
                 https://github.com/WinterJackson/ski
               </a>
@@ -87,8 +87,8 @@ export default function PrivacyPage() {
             <p className="text-zinc-400">
               <strong>Winter Jackson</strong><br />
               Software Developer, Xinteck Digital Solutions<br />
-              Email: <a href="mailto:winterjacksonwj@gmail.com" className="text-[#3ea6ff] hover:underline">winterjacksonwj@gmail.com</a><br />
-              Website: <a href="https://xinteck.co.ke/" target="_blank" rel="noopener noreferrer" className="text-[#3ea6ff] hover:underline">https://xinteck.co.ke/</a>
+              Email: <a href="mailto:winterjacksonwj@gmail.com" className="text-accent hover:underline">winterjacksonwj@gmail.com</a><br />
+              Website: <a href="https://xinteck.co.ke/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">https://xinteck.co.ke/</a>
             </p>
           </section>
         </div>

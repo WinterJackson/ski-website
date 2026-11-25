@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function BlogIndexPage() {
   return (
-    <main className="min-h-screen bg-[#09090b] text-zinc-100 flex flex-col">
+    <main className="min-h-screen bg-background text-zinc-100 flex flex-col">
       <Navbar />
 
       <section className="pt-32 pb-24 max-w-5xl mx-auto px-4 sm:px-6 flex-1">
@@ -43,21 +43,21 @@ export default function BlogIndexPage() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="block p-8 rounded-2xl bg-zinc-900/30 border border-zinc-800/80 hover:border-[#3ea6ff]/50 hover:bg-zinc-900/60 transition-all group"
+              className="block p-8 rounded-2xl bg-zinc-900/30 border border-zinc-800/80 hover:border-accent/50 hover:bg-zinc-900/60 transition-all group"
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3 text-xs text-zinc-500">
-                <span className="px-2.5 py-1 rounded-md bg-[#3ea6ff]/10 text-[#3ea6ff] font-semibold border border-[#3ea6ff]/20">
+                <span className="px-2.5 py-1 rounded-md bg-accent/10 text-accent font-semibold border border-accent/20">
                   {post.category}
                 </span>
                 <span>{post.date} · {post.readingTime}</span>
               </div>
-              <h2 className="text-2xl font-bold text-white group-hover:text-[#3ea6ff] transition-colors mb-3">
+              <h2 className="text-2xl font-bold text-white group-hover:text-accent transition-colors mb-3">
                 {post.title}
               </h2>
               <p className="text-sm text-zinc-400 leading-relaxed mb-4">
                 {post.summary}
               </p>
-              <span className="text-xs font-semibold text-[#3ea6ff] group-hover:translate-x-1 inline-flex items-center gap-1 transition-transform">
+              <span className="text-xs font-semibold text-accent group-hover:translate-x-1 inline-flex items-center gap-1 transition-transform">
                 Read full article →
               </span>
             </Link>

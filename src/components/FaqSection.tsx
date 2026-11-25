@@ -23,7 +23,7 @@ export const FAQS = [
 
 export default function FaqSection() {
   return (
-    <section id="faq" className="py-24 border-t border-zinc-800/80 bg-[#0c0c0e]">
+    <section id="faq" className="py-24 border-t border-zinc-800/80 bg-surface">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-3 mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-800/80 border border-zinc-700 text-zinc-300 text-xs font-semibold">
@@ -41,7 +41,7 @@ export default function FaqSection() {
           {FAQS.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 hover:border-[#3ea6ff]/30 transition-colors space-y-2"
+              className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 hover:border-accent/30 transition-colors space-y-2"
             >
               <h3 className="text-base sm:text-lg font-bold text-white">{item.q}</h3>
               <p className="text-sm text-zinc-400 leading-relaxed">{item.a}</p>

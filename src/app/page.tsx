@@ -51,7 +51,7 @@ const faqJsonLd = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#09090b] text-zinc-100 flex flex-col">
+    <main className="min-h-screen bg-background text-zinc-100 flex flex-col">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }}

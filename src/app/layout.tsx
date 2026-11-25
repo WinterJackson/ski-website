@@ -105,7 +105,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/icon/32.png" />
       </head>
-      <body className="min-h-screen bg-[#09090b] font-sans text-zinc-100 antialiased selection:bg-[#3ea6ff] selection:text-black">
+      <body className="min-h-screen bg-background font-sans text-zinc-100 antialiased selection:bg-accent selection:text-black">
         {children}
       </body>
     </html>

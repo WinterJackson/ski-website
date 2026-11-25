@@ -3,7 +3,7 @@ import { BLOG_POSTS } from "@/data/posts";
 
 export default function BlogPreview() {
   return (
-    <section id="blog" className="py-24 border-t border-zinc-800/80 bg-[#09090b]">
+    <section id="blog" className="py-24 border-t border-zinc-800/80 bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div className="space-y-3">
@@ -19,7 +19,7 @@ export default function BlogPreview() {
           </div>
           <Link
             href="/blog"
-            className="text-sm font-semibold text-[#3ea6ff] hover:text-[#65b8ff] transition-colors flex items-center gap-1.5"
+            className="text-sm font-semibold text-accent hover:text-accent-hover transition-colors flex items-center gap-1.5"
           >
             <span>View all articles</span>
             <span>→</span>
@@ -31,14 +31,14 @@ export default function BlogPreview() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 hover:border-[#3ea6ff]/40 transition-all hover:bg-zinc-900/80 group flex flex-col justify-between"
+              className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 hover:border-accent/40 transition-all hover:bg-zinc-900/80 group flex flex-col justify-between"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between text-xs text-zinc-500 font-medium">
-                  <span className="text-[#3ea6ff]">{post.category}</span>
+                  <span className="text-accent">{post.category}</span>
                   <span>{post.readingTime}</span>
                 </div>
-                <h3 className="text-lg font-bold text-white group-hover:text-[#3ea6ff] transition-colors line-clamp-2">
+                <h3 className="text-lg font-bold text-white group-hover:text-accent transition-colors line-clamp-2">
                   {post.title}
                 </h3>
                 <p className="text-sm text-zinc-400 line-clamp-3 leading-relaxed">
@@ -48,7 +48,7 @@ export default function BlogPreview() {
 
               <div className="pt-6 text-xs text-zinc-500 flex items-center justify-between">
                 <span>{post.date}</span>
-                <span className="text-[#3ea6ff] font-semibold group-hover:translate-x-1 transition-transform">
+                <span className="text-accent font-semibold group-hover:translate-x-1 transition-transform">
                   Read article →
                 </span>
               </div>
