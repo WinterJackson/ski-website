@@ -140,13 +140,13 @@ export default async function BlogPostPage({
               href="/#download"
               className="px-5 py-2.5 rounded-xl bg-accent text-black font-bold text-xs hover:bg-accent-hover transition-all"
             >
-              Install Ski Extension Free
+              Install Ski Free
             </Link>
             <Link
               href="/#simulator"
               className="px-5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-700 text-white font-semibold text-xs hover:border-accent transition-all"
             >
-              Try Interactive Demo
+              Interactive Demo
             </Link>
           </div>
         </div>

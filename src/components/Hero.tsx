@@ -41,7 +41,7 @@ export default function Hero() {
               The ultra-lightweight browser extension that clicks YouTube&apos;s native Skip Ad button the millisecond it appears. No network blocking, no broken players, zero tracking.
             </p>
 
-            {/* Concise CTAs (Max 3 words each) */}
+            {/* Concise CTAs (Strictly <= 3 words each) */}
             <div id="download" className="flex flex-wrap items-center gap-3.5 pt-1">
               <a
                 href="https://addons.mozilla.org/en-GB/firefox/addon/ski-extension/"
@@ -49,11 +49,8 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="btn-swap px-6 py-3.5 rounded-xl bg-accent text-black font-bold text-sm hover:bg-accent-hover transition-colors glow-accent active:scale-95"
               >
-                <span className="btn-swap-inner">
-                  <span>🦊 Get Firefox ↗</span>
-                  <span className="btn-swap-clone" aria-hidden="true">
-                    <span>Add Firefox ↗</span>
-                  </span>
+                <span className="btn-swap-inner" data-hover="Add Firefox ↗">
+                  🦊 Get Firefox ↗
                 </span>
               </a>
 
@@ -63,14 +60,9 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="btn-swap px-6 py-3.5 rounded-xl bg-surface-card border border-zinc-800 hover:border-accent text-white font-semibold text-sm transition-colors hover:bg-surface-hover active:scale-95 shadow-md"
               >
-                <span className="btn-swap-inner">
-                  <span className="inline-flex items-center gap-2">
-                    <Image src="/icon/32.png" alt="Ski Icon" width={18} height={18} className="rounded" />
-                    <span>Chrome & Edge ↗</span>
-                  </span>
-                  <span className="btn-swap-clone text-accent" aria-hidden="true">
-                    <span>Download Release ↗</span>
-                  </span>
+                <span className="btn-swap-inner" data-hover="Get Release ↗">
+                  <Image src="/icon/32.png" alt="Ski Icon" width={18} height={18} className="rounded" />
+                  <span>All Browsers ↗</span>
                 </span>
               </a>
             </div>
