@@ -1,10 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import MarqueeTicker from "@/components/MarqueeTicker";
 import InteractiveSimulator from "@/components/InteractiveSimulator";
 import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
 import BlogPreview from "@/components/BlogPreview";
-import FaqSection, { FAQS } from "@/components/FaqSection";
+import FaqSection from "@/components/FaqSection";
+import { FAQS } from "@/data/faqs";
 import SupportSection from "@/components/SupportSection";
 import Footer from "@/components/Footer";
 
@@ -62,7 +64,11 @@ export default function Home() {
       />
       <Navbar />
       <Hero />
+      <MarqueeTicker />
       <InteractiveSimulator />
+      <div className="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+        <div className="divider-dots" />
+      </div>
       <Features />
       <HowItWorks />
       <BlogPreview />

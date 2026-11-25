@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["500", "600", "700", "800"],
   variable: "--font-display",
   display: "swap",
 });
@@ -100,7 +100,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark scroll-smooth ${spaceGrotesk.variable} ${plusJakarta.variable} ${jetbrainsMono.variable}`}
+      className={`dark scroll-smooth ${bricolage.variable} ${plusJakarta.variable} ${jetbrainsMono.variable}`}
     >
       <head>
         <link rel="icon" href="/icon/32.png" />
