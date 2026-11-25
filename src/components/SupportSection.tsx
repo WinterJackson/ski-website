@@ -16,7 +16,7 @@ export default function SupportSection() {
 
         <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="https://buymeacoffee.com/winterjackson"
+            href="https://paystack.shop/pay/ski-extension"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-[#ff813f] text-white font-bold text-sm hover:opacity-90 transition-all shadow-[0_0_25px_rgba(255,129,63,0.3)] active:scale-95"

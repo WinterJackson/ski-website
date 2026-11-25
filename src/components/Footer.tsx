@@ -129,7 +129,7 @@ export default function Footer() {
             <ul className="space-y-2 text-xs">
               <li>
                 <a
-                  href="https://buymeacoffee.com/winterjackson"
+                  href="https://paystack.shop/pay/ski-extension"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#ff813f] hover:underline transition-colors font-medium flex items-center gap-1.5"

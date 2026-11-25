@@ -61,7 +61,7 @@ export default function Navbar() {
             ⭐ GitHub
           </a>
           <a
-            href="https://buymeacoffee.com/winterjackson"
+            href="https://paystack.shop/pay/ski-extension"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs font-semibold px-3 py-2 rounded-lg bg-[#ff813f] text-white hover:opacity-90 transition-all flex items-center gap-1.5"
@@ -139,7 +139,7 @@ export default function Navbar() {
               Install Free
             </Link>
             <a
-              href="https://buymeacoffee.com/winterjackson"
+              href="https://paystack.shop/pay/ski-extension"
               target="_blank"
               rel="noopener noreferrer"
               className="text-center text-xs font-semibold py-2.5 rounded-lg bg-[#ff813f] text-white"
