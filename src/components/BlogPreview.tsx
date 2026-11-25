@@ -1,38 +1,9 @@
 import Link from "next/link";
-
-export const BLOG_POSTS = [
-  {
-    slug: "why-traditional-youtube-ad-blockers-keep-breaking",
-    title: "Why Traditional YouTube Ad Blockers Keep Breaking (And Why Native Automation Wins)",
-    date: "November 24, 2026",
-    readingTime: "5 min read",
-    summary:
-      "YouTube's aggressive countermeasures against network-level ad blockers have created a game of cat-and-mouse. Here is how Ski takes a fundamentally different, compliant approach.",
-    category: "Technical Deep Dive",
-  },
-  {
-    slug: "inside-ski-8-signal-heuristic-engine",
-    title: "Inside Ski's 8-Signal Heuristic Engine: Building a Self-Healing Extension",
-    date: "November 22, 2026",
-    readingTime: "7 min read",
-    summary:
-      "A deep dive into how Ski Extension detects, scores, and adapts to obfuscated class names and layout shifts without breaking video playback.",
-    category: "Architecture",
-  },
-  {
-    slug: "how-to-skip-youtube-ads-with-one-key",
-    title: "How to Skip YouTube Ads with One Key in 2027",
-    date: "November 20, 2026",
-    readingTime: "4 min read",
-    summary:
-      "Stop reaching for your mouse every time an ad plays. Learn how to configure Ski Extension across desktop, tablet, and mobile browsers.",
-    category: "Guide",
-  },
-];
+import { BLOG_POSTS } from "@/data/posts";
 
 export default function BlogPreview() {
   return (
-    <section id="blog" className="py-24 border-t border-zinc-800/80 bg-[#0c0c0e]">
+    <section id="blog" className="py-24 border-t border-zinc-800/80 bg-[#09090b]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div className="space-y-3">
@@ -88,4 +59,3 @@ export default function BlogPreview() {
     </section>
   );
 }
-

@@ -1,7 +1,24 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { BLOG_POSTS } from "@/components/BlogPreview";
+import { BLOG_POSTS } from "@/data/posts";
+
+export const metadata: Metadata = {
+  title: "Blog & Guides — Skip YouTube Ads Without Ad-Blocker Warnings",
+  description:
+    "Engineering deep dives, YouTube ad-skipping guides, and browser extension privacy research from Winter Jackson & Xinteck Digital Solutions.",
+  alternates: {
+    canonical: "/blog",
+  },
+  openGraph: {
+    title: "Ski Extension Blog — Research, Guides & YouTube Ad-Skipping",
+    description:
+      "Learn how Ski skips YouTube ads cleanly without breaking playback or triggering anti-adblock warnings.",
+    url: "https://ski.xinteck.co.ke/blog",
+    type: "website",
+  },
+};
 
 export default function BlogIndexPage() {
   return (
@@ -52,4 +69,3 @@ export default function BlogIndexPage() {
     </main>
   );
 }
-

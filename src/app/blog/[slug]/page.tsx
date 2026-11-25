@@ -1,58 +1,90 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { BLOG_POSTS } from "@/components/BlogPreview";
+import { BLOG_POSTS } from "@/data/posts";
 
-const POST_CONTENTS: Record<string, { title: string; date: string; category: string; content: string[] }> = {
-  "why-traditional-youtube-ad-blockers-keep-breaking": {
-    title: "Why Traditional YouTube Ad Blockers Keep Breaking (And Why Native Automation Wins)",
-    date: "November 24, 2026",
-    category: "Technical Deep Dive",
-    content: [
-      "Over the last two years, anyone using conventional ad blockers has encountered black screens, buffering spinners, and YouTube's dreaded popup: 'Ad blockers violate YouTube's Terms of Service.'",
-      "Why does this keep happening? Traditional ad blockers rely on network-level request interception. They inspect incoming network requests and attempt to block manifest files or segments that belong to Google's ad servers (like googleads.g.doubleclick.net).",
-      "In response, YouTube engineers began injecting ad segments directly into the primary video stream (Server-Side Ad Insertion, or SSAI). When a network blocker attempts to drop those segments, the video player's internal state machine detects missing byte chunks and stalls entirely.",
-      "Ski Extension was built on an entirely different philosophy: don't break the stream. YouTube already provides an official 'Skip Ad' button for skippable ads. By dispatching trusted, browser-native click events to that button the millisecond it becomes available, Ski remains 100% compliant with standard player behavior.",
-      "No network interception, no streaming anomalies, and zero anti-adblock detection. It is the cleanest, most reliable way to skip ads without running into cat-and-mouse breakage."
-    ],
-  },
-  "inside-ski-8-signal-heuristic-engine": {
-    title: "Inside Ski's 8-Signal Heuristic Engine: Building a Self-Healing Extension",
-    date: "November 22, 2026",
-    category: "Architecture",
-    content: [
-      "One of the biggest hazards in browser extension development is DOM fragility. YouTube frequently redesigns its player, rotates class names, and tests experimental Polymer layouts across different A/B user buckets.",
-      "If an extension relies solely on hardcoded CSS selectors like '.ytp-ad-skip-button-modern', it will inevitably break as soon as YouTube rolls out an update.",
-      "To solve this, Ski Extension implements an 8-signal heuristic detector. When an ad is playing, every candidate interactive element inside the player is scored based on weighted criteria:",
-      "1. Skip Text Match (0.30 weight): Multilingual match across 30+ languages (Skip, Passer, Saltar, Überspringen, etc.).\n2. Player Geometry (0.15 weight): Skip buttons reside in the bottom-right quadrant.\n3. Class Name Hints (0.12 weight): Subtle semantic traces like 'skip' or 'ad'.\n4. Hierarchy Proximity (0.13 weight): Enclosed inside ad overlay containers.\n5. Element Type (0.10 weight): <button> or role='button' elements.\n6. Text Length (0.10 weight): Short, imperative action text (under 20 characters).\n7. ARIA Label Match (0.05 weight): Screen-reader accessible attributes.\n8. Physical Dimensions (0.05 weight): Valid clickable button area.",
-      "When the cumulative score exceeds the 0.55 threshold, Ski identifies the element and automatically persists the newly discovered selector to storage for instant execution next time. This self-healing architecture ensures Ski continues working even after major YouTube redesigns."
-    ],
-  },
-  "how-to-skip-youtube-ads-with-one-key": {
-    title: "How to Skip YouTube Ads with One Key in 2027",
-    date: "November 20, 2026",
-    category: "Guide",
-    content: [
-      "Reaching for your mouse and aiming for a tiny button at the bottom-right of your screen takes focus away from your workflow.",
-      "With Ski Extension, your keyboard becomes a dedicated remote control for YouTube. By default, pressing the Tab key during any skippable ad skips it immediately.",
-      "Why the Tab key? The Tab key has no default conflict with YouTube's own player shortcuts (J, K, L, Space, Arrow keys, etc.). It is naturally positioned right under your left hand.",
-      "If you prefer another shortcut, you can customize it in the Ski Extension Options page by pressing 'Change' and recording any combination—including modifiers like Shift+Tab or Ctrl+Space.",
-      "And on mobile devices (via Firefox for Android or Kiwi Browser), Ski detects the touch screen and enables hands-free Auto-Skip automatically, so you don't even need a keyboard to enjoy ad-free viewing."
-    ],
-  },
-};
+export function generateStaticParams() {
+  return BLOG_POSTS.map((post) => ({ slug: post.slug }));
+}
 
-export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   const { slug } = await params;
-  const post = POST_CONTENTS[slug];
+  const post = BLOG_POSTS.find((p) => p.slug === slug);
+
+  if (!post) {
+    return { title: "Article Not Found" };
+  }
+
+  return {
+    title: post.seoTitle,
+    description: post.metaDescription,
+    keywords: post.keywords,
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
+    openGraph: {
+      title: post.seoTitle,
+      description: post.metaDescription,
+      url: `https://ski.xinteck.co.ke/blog/${post.slug}`,
+      type: "article",
+      publishedTime: post.isoDate,
+      authors: ["Winter Jackson"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.seoTitle,
+      description: post.metaDescription,
+    },
+  };
+}
+
+export default async function BlogPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = BLOG_POSTS.find((p) => p.slug === slug);
 
   if (!post) {
     notFound();
   }
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    headline: post.title,
+    description: post.metaDescription,
+    datePublished: post.isoDate,
+    dateModified: post.isoDate,
+    author: {
+      "@type": "Person",
+      name: "Winter Jackson",
+      url: "https://github.com/WinterJackson",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Xinteck Digital Solutions",
+      url: "https://xinteck.co.ke/",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://ski.xinteck.co.ke/blog/${post.slug}`,
+    },
+  };
+
   return (
     <main className="min-h-screen bg-[#09090b] text-zinc-100 flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <Navbar />
 
       <article className="pt-32 pb-24 max-w-3xl mx-auto px-4 sm:px-6 flex-1">
@@ -66,26 +98,65 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </span>
             <span>·</span>
             <span>{post.date}</span>
+            <span>·</span>
+            <span>{post.readingTime}</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
             {post.title}
           </h1>
+          <p className="text-base text-zinc-400 leading-relaxed">{post.summary}</p>
         </div>
 
-        <div className="space-y-6 text-zinc-300 text-base sm:text-lg leading-relaxed">
-          {post.content.map((paragraph, idx) => (
-            <p key={idx} className="whitespace-pre-line">
-              {paragraph}
-            </p>
+        <div className="space-y-10 text-zinc-300 text-base sm:text-lg leading-relaxed">
+          {post.sections.map((section, idx) => (
+            <section key={idx} className="space-y-4">
+              <h2 className="text-2xl font-bold text-white tracking-tight">
+                {section.heading}
+              </h2>
+              {section.paragraphs.map((p, pIdx) => (
+                <p key={pIdx}>{p}</p>
+              ))}
+              {section.bullets && (
+                <ul className="list-disc pl-6 space-y-2 text-zinc-300">
+                  {section.bullets.map((b, bIdx) => (
+                    <li key={bIdx}>{b}</li>
+                  ))}
+                </ul>
+              )}
+            </section>
           ))}
         </div>
 
-        <div className="mt-16 pt-8 border-t border-zinc-800 flex items-center justify-between">
-          <Link href="/#download" className="px-5 py-2.5 rounded-xl bg-[#3ea6ff] text-black font-bold text-xs hover:bg-[#65b8ff] transition-all">
-            Install Ski Extension Free
+        {/* High-converting bottom CTA */}
+        <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-[#3ea6ff]/5 border border-[#3ea6ff]/30 space-y-4">
+          <h3 className="text-xl font-bold text-white">
+            Try Ski Extension Free on Your Browser
+          </h3>
+          <p className="text-sm text-zinc-400">
+            Skip YouTube ads with a single tap of Tab or hands-free Auto-Skip. Zero tracking, open source, and ready in seconds.
+          </p>
+          <div className="flex flex-wrap items-center gap-3 pt-1">
+            <Link
+              href="/#download"
+              className="px-5 py-2.5 rounded-xl bg-[#3ea6ff] text-black font-bold text-xs hover:bg-[#65b8ff] transition-all"
+            >
+              Install Ski Extension Free
+            </Link>
+            <Link
+              href="/#simulator"
+              className="px-5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-700 text-white font-semibold text-xs hover:border-[#3ea6ff] transition-all"
+            >
+              Try Interactive Demo
+            </Link>
+          </div>
+        </div>
+
+        <div className="mt-10 pt-6 border-t border-zinc-800 flex items-center justify-between">
+          <Link href="/blog" className="text-xs text-[#3ea6ff] hover:underline">
+            ← More articles
           </Link>
-          <Link href="/blog" className="text-xs text-zinc-400 hover:text-white">
-            More articles →
+          <Link href="/privacy" className="text-xs text-zinc-400 hover:text-white">
+            Privacy Policy
           </Link>
         </div>
       </article>
@@ -94,4 +165,3 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     </main>
   );
 }
-
