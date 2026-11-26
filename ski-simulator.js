@@ -424,6 +424,26 @@
       e.stopPropagation();
       setTheme(getTheme() === "dark" ? "light" : "dark");
     });
+
+    // Bypass Framer's stale client-side SPA router for static legal & blog pages
+    document.addEventListener(
+      "click",
+      function (e) {
+        var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+        if (!a || a.target === "_blank" || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        try {
+          var u = new URL(a.getAttribute("href"), window.location.origin);
+          if (u.origin !== window.location.origin) return;
+          var p = u.pathname.replace(/\.html$/, "");
+          if (p === "/privacy" || p === "/cookies" || p === "/terms" || p === "/blog" || p.indexOf("/blog/") === 0) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.location.assign(p + u.search + u.hash);
+          }
+        } catch (err) {}
+      },
+      true
+    );
   }
 
   function createThemeButton(isDrawer) {
