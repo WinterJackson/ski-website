@@ -1,0 +1,770 @@
+/* ==========================================================================
+   Ski Extension — Theme & Responsive Layout System
+   Dark Mode: 100% preserved original Framer Zinc-950 + WebGL2 Blobs.
+   Light Mode: Whitish canvas (#fafafa / #ffffff), full-width WebGL2 Blobs &
+               grayish Grid Lines, blackish high-contrast typography.
+   ========================================================================== */
+
+:root,
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --ski-bg: #09090b;
+  --ski-surface: #121215;
+  --ski-surface-2: #0c0c0e;
+  --ski-elevated: #18181d;
+  --ski-border: rgba(255, 255, 255, 0.08);
+  --ski-border-strong: rgba(255, 255, 255, 0.14);
+  --ski-text: #f4f4f5;
+  --ski-muted: #a1a1aa;
+  --ski-subtle: #71717a;
+  --ski-accent: #3ea6ff;
+  --ski-accent-hover: #65b8ff;
+  --ski-accent-text: #3ea6ff;
+  --ski-orange-text: #ff813f;
+  --ski-green-text: #30d158;
+  --ski-green-dot: #30d158;
+  --ski-kbd-bg: #18181d;
+  --ski-kbd-border: rgba(255, 255, 255, 0.14);
+  --ski-card-shadow: none;
+  --ski-toggle-bg: rgba(255, 255, 255, 0.05);
+  --ski-toggle-hover: rgba(255, 255, 255, 0.11);
+}
+
+html[data-theme="light"],
+html[data-theme="light"] body {
+  color-scheme: light;
+  --ski-bg: #fafafa;
+  --ski-surface: #ffffff;
+  --ski-surface-2: #f4f4f5;
+  --ski-elevated: #f4f4f5;
+  --ski-border: rgba(9, 9, 11, 0.12);
+  --ski-border-strong: rgba(9, 9, 11, 0.22);
+  --ski-text: #09090b;
+  --ski-muted: #27272a;
+  --ski-subtle: #27272a;
+  --ski-accent: #3ea6ff;
+  --ski-accent-hover: #65b8ff;
+  --ski-accent-text: #0070d6;
+  --ski-orange-text: #c2410c;
+  --ski-green-text: #15803d;
+  --ski-green-dot: #16a34a;
+  --ski-kbd-bg: #ffffff;
+  --ski-kbd-border: rgba(9, 9, 11, 0.18);
+  --ski-card-shadow: 0 1px 3px rgba(9, 9, 11, 0.06), 0 8px 24px rgba(9, 9, 11, 0.04);
+  --ski-toggle-bg: rgba(9, 9, 11, 0.05);
+  --ski-toggle-hover: rgba(9, 9, 11, 0.10);
+
+  /* Framer Design Tokens -> Light Mode (matches body specificity) */
+  --token-WNzwxlKrT: #fafafa !important;
+  --token-nRunI8k7f: #fafafa !important;
+  --token-KUeVGeF1y: #ffffff !important;
+  --token-i2UNdCNOB: #ffffff !important;
+  --token-P4KShp637: #f4f4f5 !important;
+  --token-nyiKlHyWF: #09090b !important;
+  --token-UOoSCVrAD: #27272a !important;
+  --token-seW3uWG7W: #27272a !important;
+  --token-xq7TrvXoH: rgba(9, 9, 11, 0.12) !important;
+  --token-GsdxA_s5Z: rgba(9, 9, 11, 0.12) !important;
+  --token-qBvDoLfau: #3ea6ff !important;
+  --token-Hgcox_gDf: #0070d6 !important;
+  --token-Mr5HpIP16: #0070d6 !important;
+  --token-AmQd5hJYA: #ff813f !important;
+  --token-nKgQuteIU: #15803d !important;
+}
+
+/* ==========================================================================
+   1. Full-Bleed Background Blobs & Grid Lines (Uniform Across Hero & All Sections)
+   ========================================================================== */
+html,
+body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+.framer-CWzCm.framer-72rtr7,
+[data-framer-root] > div {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.framer-CWzCm > section,
+.framer-CWzCm > footer {
+  overflow: visible !important;
+}
+
+.framer-CWzCm [data-framer-name="Blobs"],
+.framer-CWzCm [data-framer-name="Band Blobs"] {
+  width: 100vw !important;
+  max-width: none !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+}
+
+/* ==========================================================================
+   2. Marquee / Ticker Strip — Always Horizontal (Right-to-Left) on All Screens
+   ========================================================================== */
+.framer-CWzCm .framer-gb15ri {
+  flex-direction: row !important;
+  flex-flow: row !important;
+  align-items: center !important;
+  height: 72px !important;
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+.framer-CWzCm .framer-gb15ri > ul,
+.framer-CWzCm .framer-gb15ri .framer-2z6o6z {
+  flex-direction: row !important;
+  flex-flow: row !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+}
+
+.framer-CWzCm .framer-gb15ri li.ticker-item {
+  width: max-content !important;
+  flex-shrink: 0 !important;
+}
+
+/* ==========================================================================
+   3. Header Theme Toggle Button
+   ========================================================================== */
+.ski-theme-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid var(--ski-border);
+  background: var(--ski-toggle-bg);
+  color: var(--ski-text);
+  cursor: pointer;
+  flex: 0 0 auto;
+  padding: 0;
+  position: relative;
+  z-index: 2;
+  transition: background-color 0.12s ease, border-color 0.12s ease, transform 0.12s ease;
+}
+
+.ski-theme-btn svg,
+.ski-theme-btn span {
+  pointer-events: none;
+}
+
+.ski-theme-btn:hover {
+  background: var(--ski-toggle-hover);
+  border-color: var(--ski-border-strong);
+}
+
+.ski-theme-btn:active {
+  transform: scale(0.95);
+}
+
+.ski-theme-btn--drawer {
+  width: auto;
+  padding: 0 16px;
+  gap: 8px;
+  font-family: "Instrument Sans", system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+/* ==========================================================================
+   4. Light Mode Canvas, WebGL2 Blobs (via shared-lib) & Grid Lines
+   ========================================================================== */
+html[data-theme="light"],
+html[data-theme="light"] body,
+html[data-theme="light"] .framer-CWzCm.framer-72rtr7,
+html[data-theme="light"] [data-framer-root],
+html[data-theme="light"] [data-framer-root] > div,
+html[data-theme="light"] main {
+  background-color: #fafafa !important;
+  color: #09090b !important;
+}
+
+/* Fallback CSS .pgl-bg before WebGL initializes */
+html[data-theme="light"]:not(.pgl) .pgl-bg {
+  background-color: #fafafa !important;
+}
+
+html[data-theme="light"]:not(.pgl) .pgl-b:not([data-bar="true"]) {
+  background: #e4e4e7 !important;
+}
+
+/* Grid Lines Overlay (rendered by toplevel-deps with .pgl-grid) */
+html[data-theme="light"] .pgl-grid {
+  background-image:
+    linear-gradient(rgba(9, 9, 11, 0.065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(9, 9, 11, 0.065) 1px, transparent 1px) !important;
+}
+
+/* Hairline Borders & Grid Borders */
+html[data-theme="light"] [data-border="true"] {
+  --border-color: rgba(9, 9, 11, 0.12) !important;
+}
+
+/* Hardcoded Dark Card / Section Surfaces in Light Mode */
+html[data-theme="light"] [style*="background:rgb(18, 18, 21)"]:not([data-bar="true"]),
+html[data-theme="light"] [style*="background:#121215"]:not([data-bar="true"]) {
+  background: #ffffff !important;
+  box-shadow: var(--ski-card-shadow);
+}
+
+html[data-theme="light"] [style*="background:rgb(24, 24, 29)"]:not([data-bar="true"]),
+html[data-theme="light"] [style*="background:#18181d"]:not([data-bar="true"]) {
+  background: #f4f4f5 !important;
+}
+
+/* ==========================================================================
+   5. "Under the Hood" (Fund Bars) — Crisp Cards & Blackish Text in Light Mode
+   ========================================================================== */
+html[data-theme="light"] [data-framer-name="Fund Bars"] > div > div:nth-child(1) [data-bar="true"],
+html[data-theme="light"] [data-framer-name="Fund Bars"] > div > div:nth-child(4) [data-bar="true"] {
+  background: #ffffff !important;
+  border: 1px solid rgba(9, 9, 11, 0.14) !important;
+  box-shadow: var(--ski-card-shadow) !important;
+}
+
+html[data-theme="light"] [data-framer-name="Fund Bars"] > div > div:nth-child(2) [data-bar="true"] {
+  background: #3ea6ff !important;
+  border: 1px solid rgba(0, 112, 214, 0.25) !important;
+}
+
+html[data-theme="light"] [data-framer-name="Fund Bars"] > div > div:nth-child(3) [data-bar="true"] {
+  background: #e4e4e7 !important;
+  border: 1px solid rgba(9, 9, 11, 0.16) !important;
+  box-shadow: var(--ski-card-shadow) !important;
+}
+
+html[data-theme="light"] [data-framer-name="Fund Bars"] div,
+html[data-theme="light"] [data-framer-name="Fund Bars"] span,
+html[data-theme="light"] [data-framer-name="Fund Bars"] b,
+html[data-theme="light"] .framer-5wcsyi-container div,
+html[data-theme="light"] .framer-5wcsyi-container span {
+  color: #09090b !important;
+}
+
+/* ==========================================================================
+   6. Header Glass Bar & Mobile Drawer in Light Mode
+   ========================================================================== */
+html[data-theme="light"] header.pn-bar {
+  background: rgba(250, 250, 250, 0.88) !important;
+  border-color: rgba(9, 9, 11, 0.12) !important;
+  color: #09090b !important;
+  box-shadow: 0 4px 20px rgba(9, 9, 11, 0.06);
+}
+
+html[data-theme="light"] header.pn-bar a[aria-label="Ski home"] span {
+  color: #27272a !important;
+  border-color: rgba(9, 9, 11, 0.14) !important;
+}
+
+html[data-theme="light"] header.pn-bar a[href*="github"] {
+  color: #09090b !important;
+}
+
+html[data-theme="light"] header.pn-bar a[href*="paystack"] {
+  color: #c2410c !important;
+}
+
+html[data-theme="light"] header.pn-bar .pn-cta {
+  background: #3ea6ff !important;
+  color: #09090b !important;
+}
+
+html[data-theme="light"] .pn-drawer {
+  background: rgba(250, 250, 250, 0.98) !important;
+  color: #09090b !important;
+}
+
+html[data-theme="light"] .pn-drawer > div[aria-hidden="true"] > div {
+  background: rgba(9, 9, 11, 0.055) !important;
+}
+
+html[data-theme="light"] .pn-drawer > div[aria-hidden="true"] > div:last-child {
+  background: rgba(9, 9, 11, 0.04) !important;
+}
+
+html[data-theme="light"] .pn-drawer a[href*="paystack"] {
+  color: #c2410c !important;
+}
+
+html[data-theme="light"] .pn-drawer .pn-cta {
+  background: #3ea6ff !important;
+  color: #09090b !important;
+}
+
+/* ==========================================================================
+   7. Global Blackish Typography & High-Contrast Brand Accents in Light Mode
+   ========================================================================== */
+html[data-theme="light"] .framer-text,
+html[data-theme="light"] [style*="--framer-text-color:#f4f4f5"],
+html[data-theme="light"] [style*="--framer-text-color:rgb(244, 244, 245)"],
+html[data-theme="light"] [style*="color:rgb(244, 244, 245)"],
+html[data-theme="light"] [style*="color: rgb(244, 244, 245)"],
+html[data-theme="light"] [style*="color:#f4f4f5"] {
+  --framer-text-color: #09090b !important;
+  color: #09090b !important;
+}
+
+html[data-theme="light"] [style*="--framer-text-color:#a1a1aa"],
+html[data-theme="light"] [style*="--framer-text-color:rgb(161, 161, 170)"],
+html[data-theme="light"] [style*="--framer-text-color:#71717a"],
+html[data-theme="light"] [style*="color:#a1a1aa"],
+html[data-theme="light"] [style*="color:#71717a"] {
+  --framer-text-color: #18181b !important;
+  color: #18181b !important;
+}
+
+html[data-theme="light"] [style*="--framer-text-color:#3ea6ff"],
+html[data-theme="light"] [style*="--framer-text-color:rgb(62, 166, 255)"],
+html[data-theme="light"] [style*="color:#3ea6ff"] {
+  --framer-text-color: #0066cc !important;
+  color: #0066cc !important;
+}
+
+html[data-theme="light"] [style*="--framer-text-color:#ff813f"],
+html[data-theme="light"] [style*="color:#ff813f"] {
+  --framer-text-color: #c2410c !important;
+  color: #c2410c !important;
+}
+
+html[data-theme="light"] [style*="--framer-text-color:#30d158"],
+html[data-theme="light"] [style*="color:#30d158"] {
+  --framer-text-color: #15803d !important;
+  color: #15803d !important;
+}
+
+/* Override Framer's --extracted-* RichTextContainer CSS Variables */
+html[data-theme="light"] [style*="--extracted-1w3ko1f"],
+html[data-theme="light"] [style*="--extracted-r6o4lv"],
+html[data-theme="light"] [style*="--extracted-hl0iuy"] {
+  --extracted-1w3ko1f: #09090b !important;
+  --extracted-r6o4lv: #09090b !important;
+  --extracted-hl0iuy: #09090b !important;
+}
+
+html[data-theme="light"] [style*="--extracted-1p5vyqy"],
+html[data-theme="light"] [style*="--extracted-1xy48n3"],
+html[data-theme="light"] [style*="--extracted-2gxw0f"],
+html[data-theme="light"] [style*="--extracted-5dqwso"],
+html[data-theme="light"] [style*="--extracted-ai2n6u"],
+html[data-theme="light"] [style*="--extracted-g6945h"] {
+  --extracted-1p5vyqy: #18181b !important;
+  --extracted-1xy48n3: #18181b !important;
+  --extracted-2gxw0f: #18181b !important;
+  --extracted-5dqwso: #18181b !important;
+  --extracted-ai2n6u: #18181b !important;
+  --extracted-g6945h: #18181b !important;
+}
+
+/* Preserve high-contrast dark text on solid Brand Blue & Orange CTA pills */
+html[data-theme="light"] .framer-1f8lnlv [style*="--framer-text-color"],
+html[data-theme="light"] a[style*="background-color:var(--token-qBvDoLfau)"] [style*="--framer-text-color"],
+html[data-theme="light"] a[style*="background:rgb(62, 166, 255)"] [style*="--framer-text-color"] {
+  --framer-text-color: #09090b !important;
+  color: #09090b !important;
+}
+
+html[data-theme="light"] .framer-455bev {
+  background-color: #ff813f !important;
+}
+html[data-theme="light"] .framer-455bev [style*="--framer-text-color"] {
+  --framer-text-color: #09090b !important;
+  color: #09090b !important;
+}
+
+/* ==========================================================================
+   8. FAQ Section (#faq) — Crisp Light Cards, Questions, Answers & Icons
+   ========================================================================== */
+html[data-theme="light"] #faq button[data-framer-name] {
+  background-color: #ffffff !important;
+  border-color: rgba(9, 9, 11, 0.12) !important;
+  box-shadow: var(--ski-card-shadow);
+}
+
+html[data-theme="light"] #faq [data-framer-name="Expand Indicator"],
+html[data-theme="light"] #faq [data-framer-name="Expand Indicator"] svg {
+  color: #09090b !important;
+  fill: #09090b !important;
+}
+
+html[data-theme="light"] #faq p:not([data-framer-name="ski-faq-question"] p) {
+  color: #18181b !important;
+}
+
+/* ==========================================================================
+   9. Footer — Darker High-Contrast Texts on Light Mode & Fluid "SKI" Wordmark
+   ========================================================================== */
+footer[name="Site Footer"] .framer-bw9l39,
+footer[name="Site Footer"] .framer-bw9l39 p,
+footer[name="Site Footer"] .framer-bw9l39 span {
+  white-space: nowrap !important;
+  word-break: normal !important;
+  --framer-font-size: clamp(72px, 22vw, 212px) !important;
+  font-size: clamp(72px, 22vw, 212px) !important;
+}
+
+html[data-theme="light"] footer {
+  background-color: #fafafa !important;
+  border-top: 1px solid rgba(9, 9, 11, 0.12) !important;
+}
+
+html[data-theme="light"] footer p,
+html[data-theme="light"] footer span,
+html[data-theme="light"] footer a {
+  color: #09090b !important;
+  --framer-text-color: #09090b !important;
+  --extracted-1w3ko1f: #09090b !important;
+  --extracted-r6o4lv: #09090b !important;
+}
+
+html[data-theme="light"] footer a:hover {
+  color: #0066cc !important;
+  --framer-text-color: #0066cc !important;
+}
+
+/* ==========================================================================
+   10. Subpages (Blog Index, Articles, Legal Pages: Privacy, Cookies, Terms)
+   ========================================================================== */
+html[data-theme="light"] pre,
+html[data-theme="light"] code {
+  background-color: #f4f4f5 !important;
+  color: #09090b !important;
+  border-color: rgba(9, 9, 11, 0.12) !important;
+}
+
+.ski-legal-body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--ski-bg);
+  color: var(--ski-text);
+  font-family: "Instrument Sans", system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.55em;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+.ski-legal-bg {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+  background: #09090b;
+}
+
+.ski-legal-bg .pgl-b {
+  position: absolute;
+  border-radius: 9999px;
+  background: #18181d;
+  animation: skiBlobFloat 16s ease-in-out infinite alternate;
+}
+
+.ski-legal-bg .pgl-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: calc(100% / 12) calc(100% / 6);
+}
+
+html[data-theme="light"] .ski-legal-bg {
+  background: #fafafa !important;
+}
+
+html[data-theme="light"] .ski-legal-bg .pgl-b {
+  background: rgba(9, 9, 11, 0.055) !important;
+}
+
+.ski-legal-header-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: none;
+  width: 100%;
+  height: 88px;
+  padding: 10px;
+  box-sizing: border-box;
+  z-index: 100;
+  container-type: inline-size;
+}
+
+.ski-legal-header-wrap .pn-links { display: flex; align-items: center; }
+.ski-legal-header-wrap .pn-burger { display: none; }
+@container (max-width: 1050px) {
+  .ski-legal-header-wrap .pn-links { display: none !important; }
+  .ski-legal-header-wrap .pn-burger { display: inline-flex !important; }
+}
+@container (max-width: 420px) {
+  .ski-legal-header-wrap .pn-cta { display: none !important; }
+}
+
+.ski-legal-drawer {
+  z-index: 1000;
+}
+
+.ski-legal-main {
+  position: relative;
+  z-index: 1;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 150px 48px 90px;
+  box-sizing: border-box;
+}
+
+.ski-legal-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Martian Mono Variable", "Martian Mono", ui-monospace, monospace;
+  font-variation-settings: "wght" 400, "wdth" 87;
+  font-size: 12px;
+  line-height: 1.3em;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ski-accent-text);
+  background: var(--ski-surface);
+  border: 1px solid var(--ski-border);
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.ski-legal-h1 {
+  font-family: "Martian Mono Variable", "Martian Mono", ui-monospace, monospace;
+  font-variation-settings: "wght" 400, "wdth" 75;
+  font-weight: 400;
+  font-size: clamp(28px, 6.5vw, 60px);
+  line-height: 1.02em;
+  letter-spacing: -0.04em;
+  margin: 0 0 18px;
+  color: var(--ski-text);
+  overflow-wrap: break-word;
+}
+
+.ski-legal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  font-family: "Martian Mono Variable", "Martian Mono", ui-monospace, monospace;
+  font-variation-settings: "wght" 400, "wdth" 87;
+  font-size: 12px;
+  line-height: 1.3em;
+  letter-spacing: 0.02em;
+  color: var(--ski-muted);
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--ski-border);
+  margin-bottom: 32px;
+}
+
+.ski-legal-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.ski-legal-tab {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--ski-border);
+  background: var(--ski-surface);
+  color: var(--ski-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.ski-legal-tab:hover {
+  border-color: var(--ski-accent-text);
+  color: var(--ski-text);
+}
+
+.ski-legal-tab.active {
+  background: #3ea6ff;
+  border-color: #3ea6ff;
+  color: #09090b;
+}
+
+.ski-legal-card {
+  background: var(--ski-surface);
+  border: 1px solid var(--ski-border);
+  border-radius: 24px;
+  padding: 28px 32px;
+  margin-bottom: 20px;
+  box-shadow: var(--ski-card-shadow);
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.ski-legal-card h2 {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.45em;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+  color: var(--ski-text);
+}
+
+.ski-legal-card h3 {
+  font-size: 16px;
+  margin: 18px 0 8px;
+  color: var(--ski-text);
+}
+
+.ski-legal-card p {
+  margin: 0 0 12px;
+  color: var(--ski-muted);
+  font-size: 15px;
+  line-height: 1.55em;
+}
+
+.ski-legal-card p:last-child,
+.ski-legal-card ul:last-child {
+  margin-bottom: 0;
+}
+
+.ski-legal-card ul {
+  margin: 0 0 12px;
+  padding-left: 20px;
+  color: var(--ski-muted);
+  font-size: 15px;
+  line-height: 1.55em;
+}
+
+.ski-legal-card li {
+  margin-bottom: 8px;
+}
+
+.ski-legal-card strong {
+  color: var(--ski-text);
+}
+
+.ski-legal-card a {
+  color: var(--ski-accent-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ski-legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 4px;
+  font-size: 14px;
+  table-layout: auto;
+}
+
+.ski-legal-table th,
+.ski-legal-table td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--ski-border);
+  color: var(--ski-muted);
+  vertical-align: top;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.ski-legal-table td code {
+  white-space: normal;
+  word-break: break-word;
+}
+
+.ski-legal-table th {
+  font-family: "Martian Mono Variable", "Martian Mono", ui-monospace, monospace;
+  font-variation-settings: "wght" 400, "wdth" 87;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--ski-text);
+  background: var(--ski-elevated);
+}
+
+@media (max-width: 720px) {
+  .ski-legal-table,
+  .ski-legal-table tbody,
+  .ski-legal-table tr,
+  .ski-legal-table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .ski-legal-table thead {
+    display: none;
+  }
+  .ski-legal-table tr {
+    background: var(--ski-elevated);
+    border: 1px solid var(--ski-border);
+    border-radius: 14px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+  }
+  .ski-legal-table tr:last-child {
+    margin-bottom: 0;
+  }
+  .ski-legal-table td {
+    padding: 6px 0;
+    border-bottom: 1px solid var(--ski-border);
+  }
+  .ski-legal-table td:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  .ski-legal-table td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-family: "Martian Mono Variable", "Martian Mono", ui-monospace, monospace;
+    font-variation-settings: "wght" 400, "wdth" 87;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ski-text);
+    margin-bottom: 4px;
+  }
+}
+
+.ski-legal-footer-wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  background-color: var(--token-WNzwxlKrT, #09090b);
+}
+
+.ski-legal-footer-wrap footer[name="Site Footer"] {
+  width: 100% !important;
+  max-width: 1440px !important;
+  margin: 0 auto !important;
+  padding: 70px 48px 28px !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 1199px) {
+  .ski-legal-main { padding: 130px 24px 72px; }
+  .ski-legal-footer-wrap footer[name="Site Footer"] {
+    padding: 60px 24px 26px !important;
+  }
+}
+
+@media (max-width: 809px) {
+  .ski-legal-main { padding: 112px 18px 60px; }
+  .ski-legal-card { padding: 22px 20px; border-radius: 20px; }
+  .ski-legal-footer-wrap footer[name="Site Footer"] {
+    gap: 20px !important;
+    padding: 50px 18px 24px !important;
+  }
+  .ski-legal-footer-wrap footer[name="Site Footer"] .framer-uuxgqy {
+    grid-template-columns: repeat(1, minmax(150px, 1fr)) !important;
+  }
+}
