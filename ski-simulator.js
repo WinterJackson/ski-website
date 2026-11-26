@@ -529,6 +529,34 @@
     }
   }
 
+  function ensureWidgetsMounted() {
+    var hero = document.querySelector('[data-framer-name="Ski Toolbar Preview"]');
+    if (hero && !hero.querySelector(".ski-hero-card")) {
+      hero.removeAttribute("data-ski-mounted");
+      injectSharedStyles();
+      initHeroCard();
+    }
+    var sim = document.querySelector('[data-framer-name="Interactive Skip Simulator"]');
+    if (sim && !sim.querySelector(".ski-sim-card")) {
+      sim.removeAttribute("data-ski-mounted");
+      injectSharedStyles();
+      initSimulator();
+    }
+    var imgs = document.querySelectorAll('img[src*="framerusercontent.com/images/"], a[href*="/blog/"] img');
+    for (var i = 0; i < imgs.length; i++) {
+      var im = imgs[i];
+      var s = im.getAttribute("src") || "";
+      var m = s.match(/framerusercontent\.com\/images\/([A-Za-z0-9_-]+\.(?:jpg|png|webp))/);
+      if (m) {
+        im.setAttribute("src", "/images/" + m[1]);
+        im.removeAttribute("srcset");
+      }
+      if (im.getAttribute("loading") === "lazy") {
+        im.setAttribute("loading", "eager");
+      }
+    }
+  }
+
   function startDomGuard() {
     if (window.__skiDomGuardStarted) return;
     window.__skiDomGuardStarted = true;
@@ -538,6 +566,7 @@
       removeFramerBadge();
       enhanceHeader();
       enhanceFooter();
+      ensureWidgetsMounted();
     }
     applyFixes();
     if (typeof MutationObserver !== "undefined" && document.body) {
