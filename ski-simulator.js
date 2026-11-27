@@ -342,11 +342,11 @@
       architecture: "/#architecture",
       blog: "/blog",
       faq: "/#faq",
-      "get ski": "/#download",
     };
     var externalMap = {
       github: "https://github.com/WinterJackson/ski",
       support: "https://paystack.shop/pay/ski-extension",
+      "get ski": "https://addons.mozilla.org/en-GB/firefox/addon/ski-extension/",
     };
     var links = root.querySelectorAll("a");
     for (var i = 0; i < links.length; i++) {
