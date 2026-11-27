@@ -81,7 +81,7 @@ Pushing to `main` automatically triggers a Vercel deployment.
 ## Related Links
 
 - **Extension Source Code:** [github.com/WinterJackson/ski](https://github.com/WinterJackson/ski)
-- **Firefox Add-ons (AMO):** [addons.mozilla.org/en-GB/firefox/addon/ski-extension/](https://addons.mozilla.org/en-GB/firefox/addon/ski-extension/)
+- **Firefox Add-ons (AMO):** [addons.mozilla.org/addon/ski-extension/](https://addons.mozilla.org/addon/ski-extension/)
 - **Releases:** [github.com/WinterJackson/ski/releases](https://github.com/WinterJackson/ski/releases)
 - **Xinteck Digital Solutions:** [xinteck.co.ke](https://xinteck.co.ke/)
 
